@@ -26,7 +26,6 @@ function CardComponents() {
                             </div>
                         </div>
                     </Link>
-
                 )
             }
         </>

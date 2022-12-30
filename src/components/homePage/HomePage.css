@@ -1,12 +1,17 @@
+.home-container {
+    margin-bottom: 40px;
+}
+
 .home-container .category{
     margin: 30px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .home-container .products {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 20px;
+    /* justify-content: center; */
 }
 
 a {
