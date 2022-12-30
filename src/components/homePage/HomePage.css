@@ -1,0 +1,15 @@
+.home-container .category{
+    margin: 30px;
+    font-size: 1.5rem;
+}
+
+.home-container .products {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
