@@ -1,7 +1,7 @@
 .card-container {
     /* background-color: rgb(243, 243, 243); */
     width: 250px;
-    height: 350px;
+    height: 340px;
     border-radius: 10px;
     border: 1px solid #000;
     margin: 10px 20px;
@@ -32,7 +32,7 @@
 }
 
 .card-title {
-    height: 45px;
+    height: 47px;
     width: auto;
     margin: 0 15px 15px 15px;
     padding-top: 5px;

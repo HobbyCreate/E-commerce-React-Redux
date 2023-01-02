@@ -17,3 +17,19 @@
     cursor: pointer;
     color: rgb(243, 42, 42);
 }
+
+@media screen and (max-width: 780px) {
+    .detail {
+        height: 50px;
+        width: 85%;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .detail {
+        height: 50px;
+        width: 95%;
+        font-size: 0.7rem;
+    }
+}

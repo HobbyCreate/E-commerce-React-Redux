@@ -27,3 +27,19 @@
     background-color: rgba(223, 35, 35, 0.7);
     cursor: pointer;
 }
+
+@media screen and (max-width: 780px) {
+    .summary-container {
+        height: 100px;
+        width: 85%;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .summary-container {
+        height: 100px;
+        width: 95%;
+        font-size: 0.8rem;
+    }
+}

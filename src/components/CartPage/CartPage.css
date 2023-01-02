@@ -29,7 +29,6 @@
 .cart-quantity, 
 .cart-totlePrice{
     width: 130px;
-    
 }
 
 .cart-image img {
@@ -51,4 +50,20 @@
 .bin {
     font-size: 1.4rem;
     cursor: pointer;
+}
+
+@media screen and (max-width: 780px) {
+    .cart-detail {
+        height: 100px;
+        width: 85%;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cart-detail {
+        height: 100px;
+        width: 95%;
+        font-size: 0.7rem;
+    }
 }
