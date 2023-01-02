@@ -19,8 +19,6 @@ function HomePage() {
         };
         fetchProducts()
     }, [dispatch]);
-
-    // console.log(items)
     
     return (
         <div className='home-container'>

@@ -1,0 +1,29 @@
+.summary-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    width: 70%;
+    margin-bottom: 10px;
+    border: 1px solid rgb(169, 162, 162);
+    padding: 10px;
+    box-shadow: 5px 5px 6px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: rgb(236, 228, 220);
+    font-size: 1.1rem;
+}
+
+.text {
+    margin-bottom: 20px;
+}
+
+.check-btn {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(240, 89, 89, 0.7);
+}
+
+.check-btn:hover {
+    background-color: rgba(223, 35, 35, 0.7);
+    cursor: pointer;
+}

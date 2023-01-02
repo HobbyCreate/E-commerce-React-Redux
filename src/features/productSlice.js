@@ -9,7 +9,7 @@ const productSlice = createSlice({
     },
     reducers:{
         allProducts: (state, action) => {
-            action.payload.map(item => state.items.push(item))
+            action.payload.forEach(item => state.items.push(item))
         },
         clearAllProducts: (state) => {
             state.items = [];
@@ -21,7 +21,7 @@ const productSlice = createSlice({
             state.selected = [];
         },
         searchProducts: (state, action) => {
-            action.payload.map(item => state.search.push(item))
+            action.payload.forEach(item => state.search.push(item))
         },
         clearSearchProducts: (state) => {
             state.search = [];

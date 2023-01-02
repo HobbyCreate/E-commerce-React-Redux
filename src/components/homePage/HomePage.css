@@ -10,8 +10,8 @@
 .home-container .products {
     display: flex;
     flex-flow: row wrap;
-    margin-left: 20px;
-    /* justify-content: center; */
+    justify-content: center;
+    margin-left: 10px;
 }
 
 a {

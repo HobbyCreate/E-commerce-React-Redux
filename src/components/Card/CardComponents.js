@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './CardComponents.css'
@@ -7,15 +7,11 @@ function CardComponents() {
     const items = useSelector(state => state.products.items);
     const searchItem = useSelector(state => state.products.search)
     let products;
-
-    console.log(searchItem.length)
         if (searchItem.length !== 0) {
             products = searchItem;
         } else {
             products = items;
         }
-
-    // console.log(searchItem)
     return (
         <>
             {
