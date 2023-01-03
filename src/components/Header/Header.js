@@ -43,7 +43,7 @@ function Header() {
                     </div>
                 </Link>
                 <div className='search-container'>
-                    <input type="text" placeholder="Search.." onChange={onChangeHandler} defaultValue='' />
+                    <input type="text" placeholder="Search.." onChange={onChangeHandler}  onKeyDown={onChangeHandler}/>
                 </div>
             </div>
         </div>
