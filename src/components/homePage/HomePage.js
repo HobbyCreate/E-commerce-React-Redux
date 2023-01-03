@@ -12,7 +12,7 @@ function HomePage() {
     useEffect(() => {
         // check items before fecth data.
         // if items in LocalStorage is empty then fecth
-        if (items === null) {
+        if (items.length === 0) {
             const fetchProducts = async () => {
                 const response = await axios.get('https://fakestoreapi.com/products')
                     .catch((error) => {
