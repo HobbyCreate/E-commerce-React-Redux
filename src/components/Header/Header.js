@@ -13,17 +13,33 @@ function Header() {
     let tempArr = [];
 
 
-    const onChangeHandler = (e) => {
-        const search = e.target.value;
-        if (search !== '' || search !== 'undefined') {
-            if (items !== 'undefined') {
-                (items.map(item =>
-                    item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
-                ));
+    // const onChangeHandler = (e) => {
+    //     const search = e.target.value;
+    //     if (search !== '' || search !== 'undefined') {
+    //         if (items !== 'undefined') {
+    //             (items.map(item =>
+    //                 item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
+    //             ));
+    //         }
+    //         setTemp(tempArr)
+    //     }
+    // }
+
+    const onKeyEnter = (e) => {
+        if (e.keyCode === 13) {
+            const search = e.target.value;
+            console.log(search)
+            if (search !== '' || search !== 'undefined') {
+                if (items !== 'undefined') {
+                    (items.map(item =>
+                        item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
+                    ));
+                }
+                setTemp(tempArr)
             }
-            setTemp(tempArr)
         }
     }
+
     useEffect(() => {
         dispatch(clearSearchProducts())
         dispatch(searchProducts(temp))
@@ -43,7 +59,8 @@ function Header() {
                     </div>
                 </Link>
                 <div className='search-container'>
-                    <input type="text" placeholder="Search.." onChange={onChangeHandler}  onKeyDown={onChangeHandler}/>
+                {/* <input type="text" placeholder="Search.." onChange={onChangeHandler} /> */}
+                    <input type="text" placeholder="Search.." onKeyUp={onKeyEnter} />
                 </div>
             </div>
         </div>
