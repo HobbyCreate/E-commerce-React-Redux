@@ -16,6 +16,7 @@ function CartSummary() {
     };
 
     useEffect(() => {
+        // calculate summary price and quantity
         const sumPriceAllItems = () => {
             let sumPrice = 0;
             let sumQyt = 0;

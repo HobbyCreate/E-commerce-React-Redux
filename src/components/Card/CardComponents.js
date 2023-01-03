@@ -6,12 +6,17 @@ import './CardComponents.css'
 function CardComponents() {
     const items = useSelector(state => state.products.items);
     const searchItem = useSelector(state => state.products.search)
+
+    // check and assign to products variable to show to screen.
+    // if the user does not use search event the page will show all products
+    // if the user use search event the page will show result of search event 
     let products;
-        if (searchItem.length !== 0) {
-            products = searchItem;
-        } else {
-            products = items;
-        }
+    if (searchItem.length !== 0) {
+        products = searchItem;
+    } else {
+        products = items;
+    }
+
     return (
         <>
             {

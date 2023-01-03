@@ -1,23 +1,30 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { allProducts, clearAllProducts } from '../../features/productSlice';
 import './HomePage.css';
 import CardComponents from '../Card/CardComponents';
 
 function HomePage() {
     const dispatch = useDispatch();
+    const items = useSelector(state => state.products.items);
+
     useEffect(() => {
-        const fetchProducts = async () => {
-            const response = await axios.get('https://fakestoreapi.com/products')
-                .catch((error) => {
-                    console.log(error);
-                });
-            dispatch(clearAllProducts());
-            dispatch(allProducts(response.data));
-        };
-        fetchProducts()
-    }, [dispatch]);
+        // check items before fecth data.
+        // if items in LocalStorage is empty then fecth
+        if (items === null) {
+            const fetchProducts = async () => {
+                const response = await axios.get('https://fakestoreapi.com/products')
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                dispatch(clearAllProducts());
+                dispatch(allProducts(response.data));
+            };
+            fetchProducts()
+        }
+
+    }, [dispatch, items]);
 
     return (
         <div className='home-container'>

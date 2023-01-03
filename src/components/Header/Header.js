@@ -13,10 +13,13 @@ function Header() {
     const items = useSelector(state => state.products.items)
     const cartCount = useSelector(state => state.cart.cartLength);
 
+    // onChangeHandler function and searchByProducts function.
+    // use for handler search event when user press 'Enter' key from keyboard on PC
+    // or press 'search/Go' key from virtual keyboard on mobile or tablet
+
     const onChangeHandler = (e) => {
         setSearch((e.target.value).toLowerCase())
     }
-
     const searchByProducts = (e) => {
         if (e.key === "Enter") {
             if (search !== '' || search !== 'undefined') {
@@ -27,7 +30,6 @@ function Header() {
                 }
             }
         }
-
     };
 
     useEffect(() => {
