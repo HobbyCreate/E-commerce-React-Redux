@@ -13,7 +13,7 @@ function Header() {
     const cartCount = useSelector(state => state.cart.cartLength);
     let tempArr = [];
 
-    const onChangeHandler = (e) => {
+    const onBlurHandler = (e) => {
         const search = e.target.value;
         if (search !== '' || search !== 'undefined') {
             if (items !== 'undefined') {
@@ -25,27 +25,6 @@ function Header() {
         }
     }
 
-    // const onKeyEnter = (e) => {
-    //     if (e.keyCode === 13) {
-    //         const search = e.target.value;
-    //         console.log(search)
-    //         if (search !== '' || search !== 'undefined') {
-    //             if (items !== 'undefined') {
-    //                 (items.map(item =>
-    //                     item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
-    //                 ));
-    //             }
-    //             setTemp(tempArr)
-    //         }
-    //     }
-    // }
-
-    const triggerChange = () => {
-        const element = document.getElementById('search');
-        const event = new Event('change');
-        element.dispatchEvent(event);
-    };
-
     useEffect(() => {
         dispatch(clearSearchProducts())
         dispatch(searchProducts(temp))
@@ -54,7 +33,7 @@ function Header() {
     return (
         <div className='header-container'>
             <div className='shop-name'>
-                <Link to='/'><h1>All Around The World Shop</h1></Link>
+                <Link to='/' onClick={dispatch(clearSearchProducts())}><h1>All Around The World Shop</h1></Link>
             </div>
             <div className='functional'>
                 <div className='dark-mode'></div>
@@ -65,9 +44,8 @@ function Header() {
                     </div>
                 </Link>
                 <div className='search-container'>
-                    <input id="search" type="text" placeholder="Search.." onChange={onChangeHandler} />
-                    {/* <input type="text" placeholder="Search.." onKeyUp={onKeyEnter} /> */}
-                    <BiSearch className='search-icon' onClick={triggerChange} />
+                    <input type="text" placeholder="Search.."  onBlur={onBlurHandler} />
+                    <BiSearch className='search-icon' />
                 </div>
             </div>
         </div>
