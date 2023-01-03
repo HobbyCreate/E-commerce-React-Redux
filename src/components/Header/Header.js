@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Header.css'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { BiSearch } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchProducts, clearSearchProducts } from '../../features/productSlice'
 import { Link } from 'react-router-dom'
@@ -12,33 +13,38 @@ function Header() {
     const cartCount = useSelector(state => state.cart.cartLength);
     let tempArr = [];
 
+    const onChangeHandler = (e) => {
+        const search = e.target.value;
+        if (search !== '' || search !== 'undefined') {
+            if (items !== 'undefined') {
+                (items.map(item =>
+                    item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
+                ));
+            }
+            setTemp(tempArr)
+        }
+    }
 
-    // const onChangeHandler = (e) => {
-    //     const search = e.target.value;
-    //     if (search !== '' || search !== 'undefined') {
-    //         if (items !== 'undefined') {
-    //             (items.map(item =>
-    //                 item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
-    //             ));
+    // const onKeyEnter = (e) => {
+    //     if (e.keyCode === 13) {
+    //         const search = e.target.value;
+    //         console.log(search)
+    //         if (search !== '' || search !== 'undefined') {
+    //             if (items !== 'undefined') {
+    //                 (items.map(item =>
+    //                     item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
+    //                 ));
+    //             }
+    //             setTemp(tempArr)
     //         }
-    //         setTemp(tempArr)
     //     }
     // }
 
-    const onKeyEnter = (e) => {
-        if (e.keyCode === 13) {
-            const search = e.target.value;
-            console.log(search)
-            if (search !== '' || search !== 'undefined') {
-                if (items !== 'undefined') {
-                    (items.map(item =>
-                        item.title.toLowerCase().includes(search) ? tempArr.push(item) : tempArr
-                    ));
-                }
-                setTemp(tempArr)
-            }
-        }
-    }
+    const triggerChange = () => {
+        const element = document.getElementById('search');
+        const event = new Event('change');
+        element.dispatchEvent(event);
+    };
 
     useEffect(() => {
         dispatch(clearSearchProducts())
@@ -59,8 +65,9 @@ function Header() {
                     </div>
                 </Link>
                 <div className='search-container'>
-                {/* <input type="text" placeholder="Search.." onChange={onChangeHandler} /> */}
-                    <input type="text" placeholder="Search.." onKeyUp={onKeyEnter} />
+                    <input id="search" type="text" placeholder="Search.." onChange={onChangeHandler} />
+                    {/* <input type="text" placeholder="Search.." onKeyUp={onKeyEnter} /> */}
+                    <BiSearch className='search-icon' onClick={triggerChange} />
                 </div>
             </div>
         </div>
