@@ -60,7 +60,7 @@
     overflow: hidden;
 }
 
-.cart-totlePrice>h4{
+.cart-totlePrice h4{
     color: rgb(192, 36, 36);
 }
 
@@ -94,11 +94,13 @@
 }
 
 @media screen and (max-width: 780px) {
-    .cart-detail {
+    .cart-detail,
+    .cart-detail-check {
         height: 100px;
         width: 85%;
         font-size: 0.9rem;
     }
+
     .cart-image img {
         height: auto;
         max-width: 100px;
@@ -106,7 +108,8 @@
 }
 
 @media screen and (max-width: 480px) {
-    .cart-detail {
+    .cart-detail,
+    .cart-detail-check {
         height: 100px;
         width: 95%;
         font-size: 0.6rem;
