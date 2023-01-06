@@ -20,6 +20,23 @@
     border-radius: 5px;
 }
 
+.check-box {
+    cursor: pointer;
+}
+
+.cart-detail-check {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    width: 70%;
+    margin-bottom: 10px;
+    border: 1px solid rgb(36, 240, 255);
+    padding: 10px;
+    box-shadow: 2px 2px 3px 3px rgba(6, 240, 21, 0.5);
+    border-radius: 5px;
+}
+
 .cart-image {
     width: 170px;
 }
@@ -80,7 +97,11 @@
     .cart-detail {
         height: 100px;
         width: 85%;
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    .cart-image img {
+        height: auto;
+        max-width: 100px;
     }
 }
 
@@ -88,6 +109,11 @@
     .cart-detail {
         height: 100px;
         width: 95%;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
+    }
+
+    .cart-image img {
+        height: auto;
+        max-width: 70px;
     }
 }

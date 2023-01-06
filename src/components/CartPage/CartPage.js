@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './CartPage.css'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import CartHeader from './CartHeader'
-import { removeItemFromCart } from '../../features/cartSlice'
+import { removeItemFromCart, checkToCheckout } from '../../features/cartSlice'
 import CartSummary from './CartSummary'
 
 function CartPage() {
@@ -15,6 +15,11 @@ function CartPage() {
         dispatch(removeItemFromCart(item))
     }
 
+    const checkoutToggle = (item) => {
+        dispatch(checkToCheckout(item))
+    }
+
+    
     return (
         <>
             {
@@ -30,7 +35,8 @@ function CartPage() {
                             <CartHeader />
                             {
                                 cart.map((item) =>
-                                    <div className='cart-detail' key={item.id}>
+                                    <div className= {item.checkout === true ? 'cart-detail-check' : 'cart-detail'} key={item.id}>
+                                        <input className='check-box' type="checkbox" onClick={() => checkoutToggle(item)}/>
                                         <div className='cart-image'>
                                             <img src={item.image} alt={item.title}></img>
                                         </div>

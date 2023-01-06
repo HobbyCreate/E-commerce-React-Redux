@@ -8,10 +8,10 @@
 }
 
 .home-container .products {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, auto));
+    justify-items: center;
+    align-self: center;
 }
 
 a {

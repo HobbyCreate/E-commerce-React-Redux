@@ -12,7 +12,7 @@ function CartHeader() {
     
     return (
         <div className='detail' >
-            <div className='cart-image'>
+            <div className='blank'>
 
             </div>
             <div className='cart-title'>

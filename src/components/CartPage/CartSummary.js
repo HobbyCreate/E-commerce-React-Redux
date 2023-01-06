@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { clearAllItem } from '../../features/cartSlice'
+import { clearCheckoutItem } from '../../features/cartSlice'
 import './CartSummary.css';
 
 function CartSummary() {
@@ -11,7 +11,7 @@ function CartSummary() {
     const [totalQyt, setTotalQyt] = useState(0);
 
     const onCheckHandler = () => {
-        dispatch(clearAllItem());
+        dispatch(clearCheckoutItem());
         alert('check out completed')
     };
 
@@ -21,8 +21,10 @@ function CartSummary() {
             let sumPrice = 0;
             let sumQyt = 0;
             cart.forEach(element => {
-                sumPrice += element.allPrice;
-                sumQyt += element.quantity;
+                if(element.checkout === true){
+                    sumPrice += element.allPrice;
+                    sumQyt += element.quantity;
+                }
             });
             setTotalPrice(sumPrice);
             setTotalQyt(sumQyt)
@@ -34,19 +36,19 @@ function CartSummary() {
     return (
         <div className='summary-container'>
             <div className='total-item'>
-                <h4 className='text'>Total product</h4>
+                <h4 className='text'>Total product in cart</h4>
                 {
                     cartCount > 1 ? <h4>{`${cartCount} products`}</h4> : <h4>{`${cartCount} product`}</h4>
                 }
             </div>
             <div className='total-quantity'>
-                <h4 className='text'>Total item</h4>
+                <h4 className='text'>Total item to check out</h4>
                 {
                     totalQyt > 1 ? <h4>{`${totalQyt} items`}</h4> : <h4>{`${totalQyt} item`}</h4>
                 }
             </div>
             <div className='total-price'>
-                <h4 className='text'>Total price</h4>
+                <h4 className='text'>Total price to check out</h4>
                 <h4>{`${totalPrice.toFixed(2)} $`}</h4>
             </div>
             <div className='check-btn'>

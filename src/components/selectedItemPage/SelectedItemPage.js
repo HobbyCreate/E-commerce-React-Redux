@@ -33,6 +33,7 @@ function SelectedItemPage() {
             price: items.price,
             quantity: quantity,
             allPrice: Number((items.price * quantity).toFixed(2)),
+            checkout: false,
         }))
     }
 
